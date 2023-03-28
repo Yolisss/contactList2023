@@ -28,12 +28,12 @@ app.get("/api/contacts", async (req, res) => {
 app.post("/api/contacts", async (req, res) => {
   try {
     const newContact = {
-      firstname: req.body.name,
+      name: req.body.name,
       email: req.body.email,
       phone: req.body.phone,
       notes: req.body.notes,
     };
-    //console.log([newStudent.firstname, newStudent.lastname, newStudent.iscurrent]);
+    //console.log(newContact);
     const result = await db.query(
       "INSERT INTO contacts(name, email, phone, notes) VALUES($1, $2, $3, $4) RETURNING *",
       [newContact.name, newContact.email, newContact.phone, newContact.notes]
