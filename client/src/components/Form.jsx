@@ -15,6 +15,7 @@ const MyForm = ({ onSaveContact, editingContact, onUpdateContact }) => {
   //create functions that handle the event of the user typing into the form
   const handleNameChange = (event) => {
     const name = event.target.value;
+    console.log(name);
     setContact((contact) => ({ ...contact, name }));
   };
 
@@ -38,7 +39,7 @@ const MyForm = ({ onSaveContact, editingContact, onUpdateContact }) => {
   };
 
   //A function to handle the post request
-  const postStudent = (newContact) => {
+  const postContact = (newContact) => {
     return fetch("http://localhost:8080/api/contacts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
